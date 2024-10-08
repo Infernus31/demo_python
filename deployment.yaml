@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: demo_python
+  name: demopython
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: demo_python
+      app: demopython
   template:
     metadata:
       labels:
-        app: demo_python
+        app: demopython
     spec:
       containers:
-        - name: demo_python
+        - name: demopython
           image: infernus31/demo_python
           ports:
             - containerPort: 8080
