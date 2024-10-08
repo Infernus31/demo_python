@@ -14,7 +14,7 @@ pipeline {
             steps {
                 echo " ============== start create deployment =================="
                 dir ('.') {
-                	sh 'kubectl apply -f ./deployment.yaml'
+                	sh 'kubectl apply -f ./deployment.yaml --validate=false'
                 }
             }
         }
@@ -22,7 +22,7 @@ pipeline {
             steps {
                 echo " ============== start create service =================="
                 dir ('.') {
-                	sh 'kubectl apply -f ./service.yaml'
+                	sh 'kubectl apply -f ./service.yaml --validate=false'
                 }
             }
         }

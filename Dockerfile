@@ -14,4 +14,4 @@ RUN pip install pip
 EXPOSE 8080
 
 # Запуск приложения
-CMD [ "python3", "MethodHosts.py", "tail -f /dev/null" ]
+CMD [ "python3", "MethodHosts.py && tail -f /dev/null" ]
