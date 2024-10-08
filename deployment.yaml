@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: testkuber
+  name: demo_python
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: testkuber
+      app: demo_python
   template:
     metadata:
       labels:
-        app: testkuber
+        app: demo_python
     spec:
       containers:
-        - name: testkuber
-          image: infernus31/demo_pr
+        - name: demo_python
+          image: infernus31/demo_python
           ports:
             - containerPort: 8080
           readinessProbe:

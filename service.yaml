@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: testkuber
+  name: demo_python
 spec:
   type: LoadBalancer
   selector:
-    app: testkuber
+    app: demo_python
   ports:
     - protocol: TCP
       name: http-traffic
