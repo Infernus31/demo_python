@@ -1,0 +1,67 @@
+Started by user Vasiliy Pupkin
+Obtained pipelines/deploy_test.jenkins from git https://github.com/Infernus31/demo_python.git
+[Pipeline] Start of Pipeline
+[Pipeline] properties
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/Deploy_test
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+The recommended git tool is: git
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/Deploy_test/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/Infernus31/demo_python.git # timeout=10
+Fetching upstream changes from https://github.com/Infernus31/demo_python.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.34.1'
+ > git fetch --tags --force --progress -- https://github.com/Infernus31/demo_python.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision 2e3bacab31c033f2daf6968ad1870433a88fb4fa (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 2e3bacab31c033f2daf6968ad1870433a88fb4fa # timeout=10
+Commit message: "-"
+ > git rev-list --no-walk c78f218a5c70961807e8d5fe92b335786b4af73f # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] timestamps
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (create deployment)
+[Pipeline] echo
+[2024-10-08T22:33:02.017Z]  ============== start create deployment ==================
+[Pipeline] dir
+[2024-10-08T22:33:02.022Z] Running in /var/lib/jenkins/workspace/Deploy_test
+[Pipeline] {
+[Pipeline] sh
+[2024-10-08T22:33:02.288Z] + kubectl apply -f ./deployment.yaml --validate=false
+[2024-10-08T22:33:02.288Z] E1009 03:33:02.070632  219101 memcache.go:265] "Unhandled Error" err="couldn't get current server API group list: Get \"http://localhost:8080/api?timeout=32s\": dial tcp 127.0.0.1:8080: connect: connection refused"
+[2024-10-08T22:33:02.288Z] error: unable to recognize "./deployment.yaml": Get "http://localhost:8080/api?timeout=32s": dial tcp 127.0.0.1:8080: connect: connection refused
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (create service)
+Stage "create service" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (create tunnel)
+Stage "create tunnel" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // timestamps
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+ERROR: script returned exit code 1
+Finished: FAILURE
